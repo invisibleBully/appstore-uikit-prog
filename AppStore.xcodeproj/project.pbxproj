@@ -12,6 +12,7 @@
 		C36D137B2805B4BF00CE55D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36D137A2805B4BF00CE55D9 /* Assets.xcassets */; };
 		C36D137E2805B4BF00CE55D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36D137C2805B4BF00CE55D9 /* LaunchScreen.storyboard */; };
 		C36D138E2805BF0C00CE55D9 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D138D2805BF0C00CE55D9 /* BaseTabBarController.swift */; };
+		C36D13C3280E180D00CE55D9 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D13C2280E180D00CE55D9 /* SearchCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		C36D137D2805B4BF00CE55D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C36D137F2805B4BF00CE55D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C36D138D2805BF0C00CE55D9 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		C36D13C2280E180D00CE55D9 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		C36D13852805B8F800CE55D9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C36D13C1280E17DF00CE55D9 /* Search */,
 				C36D138C2805BEF200CE55D9 /* Main */,
 			);
 			path = Controller;
@@ -126,6 +129,14 @@
 				C36D138D2805BF0C00CE55D9 /* BaseTabBarController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C36D13C1280E17DF00CE55D9 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C36D13C2280E180D00CE55D9 /* SearchCollectionViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36D13C3280E180D00CE55D9 /* SearchCollectionViewController.swift in Sources */,
 				C36D138E2805BF0C00CE55D9 /* BaseTabBarController.swift in Sources */,
 				C36D13722805B4BD00CE55D9 /* AppDelegate.swift in Sources */,
 				C36D13742805B4BD00CE55D9 /* SceneDelegate.swift in Sources */,

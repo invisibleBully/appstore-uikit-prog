@@ -17,54 +17,27 @@ class BaseTabBarController: UITabBarController {
     
     
     func setupChildViewControllers(){
-        
-        let todayController = UIViewController()
-        todayController.view.backgroundColor = .white
-        todayController.title = "Today"
-        
-        let appsController = UIViewController()
-        appsController.view.backgroundColor = .white
-        appsController.title = "Apps"
-        
-        let searchController = UIViewController()
-        searchController.view.backgroundColor = .white
-        searchController.title = "Search"
-        
-        todayController.navigationItem.largeTitleDisplayMode = .always
-        appsController.navigationItem.largeTitleDisplayMode = .always
-        searchController.navigationItem.largeTitleDisplayMode = .always
-        
-        
-        let todayNavigationController = UINavigationController(rootViewController: todayController)
-        let appsNavigationController = UINavigationController(rootViewController: appsController)
-        let searchNavigationController = UINavigationController(rootViewController: searchController)
-        
-        todayNavigationController.navigationBar.prefersLargeTitles = true
-        appsNavigationController.navigationBar.prefersLargeTitles = true
-        searchNavigationController.navigationBar.prefersLargeTitles = true
-        
-        
-        todayNavigationController.tabBarItem.title = "Today"
-        appsNavigationController.tabBarItem.title = "Apps"
-        searchNavigationController.tabBarItem.title = "Search"
-        
-        
-        todayNavigationController.tabBarItem.image = UIImage(named: "today_icon")
-        appsNavigationController.tabBarItem.image = UIImage(named: "apps")
-        searchNavigationController.tabBarItem.image = UIImage(named: "search")
-        
-        
-        
         setViewControllers(
             [
-                todayNavigationController,
-                appsNavigationController,
-                searchNavigationController
+                createNavController(forViewController: UIViewController(), withTitle: "Today", andImageName: "today_icon"),
+                createNavController(forViewController: UIViewController(), withTitle: "Apps", andImageName: "apps"),
+                createNavController(forViewController: SearchCollectionViewController(), withTitle: "Search", andImageName: "search")
             ], animated: true)
     }
     
     
-    
+    fileprivate func createNavController(forViewController viewController: UIViewController,
+                                         withTitle title: String,
+                                         andImageName imageName: String ) -> UIViewController {
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.navigationItem.title = title
+        viewController.view.backgroundColor = .white
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.tabBarItem.image = UIImage(named: imageName)
+        navigationController.tabBarItem.title = title
+        return navigationController
+    }
     
     
     
