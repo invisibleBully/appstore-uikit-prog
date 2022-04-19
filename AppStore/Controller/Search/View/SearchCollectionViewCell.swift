@@ -12,6 +12,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "SearchCollectionViewCell"
     
     
+    private lazy var screenShotImageViewOne = createScreenshotImageView()
+    private lazy var screenShotImageViewTwo = createScreenshotImageView()
+    private lazy var screenShotImageViewThree = createScreenshotImageView()
+    
+    
+    
     private lazy var appImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 12.0
@@ -58,8 +64,16 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }()
     
     
+    private lazy var parentStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [appInfoStackView, screenshotStackView])
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        return stackView
+    }()
     
-    private lazy var mainStackView: UIStackView = {
+    
+    
+    private lazy var appInfoStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [appImageView,
                                                        labelStackView,
                                                        getButton]
@@ -80,10 +94,21 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     
     
+    private lazy var screenshotStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [screenShotImageViewOne, screenShotImageViewTwo, screenShotImageViewThree])
+        stackView.axis = .horizontal
+        stackView.spacing = 12
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
+    
+    
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .yellow
-        addSubview(mainStackView)
+        addSubview(parentStackView)
         setupStackView()
     }
     
@@ -93,14 +118,20 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
     
     
+    func createScreenshotImageView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .blue
+        return imageView
+    }
+    
+    
     
     private func setupStackView(){
-        mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        mainStackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-        mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        parentStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
     }
+    
+    
+    
     
     
 }
