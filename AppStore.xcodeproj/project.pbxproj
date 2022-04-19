@@ -13,6 +13,7 @@
 		C36D137E2805B4BF00CE55D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36D137C2805B4BF00CE55D9 /* LaunchScreen.storyboard */; };
 		C36D138E2805BF0C00CE55D9 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D138D2805BF0C00CE55D9 /* BaseTabBarController.swift */; };
 		C36D13C3280E180D00CE55D9 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D13C2280E180D00CE55D9 /* SearchCollectionViewController.swift */; };
+		C36D13C6280E22B800CE55D9 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D13C5280E22B800CE55D9 /* SearchCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C36D137F2805B4BF00CE55D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C36D138D2805BF0C00CE55D9 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		C36D13C2280E180D00CE55D9 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
+		C36D13C5280E22B800CE55D9 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,8 +137,17 @@
 			isa = PBXGroup;
 			children = (
 				C36D13C2280E180D00CE55D9 /* SearchCollectionViewController.swift */,
+				C36D13C4280E228100CE55D9 /* View */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		C36D13C4280E228100CE55D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C36D13C5280E22B800CE55D9 /* SearchCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 				C36D138E2805BF0C00CE55D9 /* BaseTabBarController.swift in Sources */,
 				C36D13722805B4BD00CE55D9 /* AppDelegate.swift in Sources */,
 				C36D13742805B4BD00CE55D9 /* SceneDelegate.swift in Sources */,
+				C36D13C6280E22B800CE55D9 /* SearchCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
