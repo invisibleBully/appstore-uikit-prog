@@ -19,6 +19,10 @@
 		C36D13CB280EE4EE00CE55D9 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D13CA280EE4EE00CE55D9 /* VerticalStackView.swift */; };
 		C36D14382814A58E00CE55D9 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14372814A58D00CE55D9 /* Search.swift */; };
 		C36D143B2814AB6700CE55D9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D143A2814AB6700CE55D9 /* NetworkManager.swift */; };
+		C36D143E28159F3100CE55D9 /* AppsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D143D28159F3100CE55D9 /* AppsCollectionViewController.swift */; };
+		C36D14402815A01800CE55D9 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D143F2815A01800CE55D9 /* BaseListController.swift */; };
+		C36D14432815A44300CE55D9 /* AppsGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14422815A44300CE55D9 /* AppsGroupCollectionViewCell.swift */; };
+		C36D14452815D97600CE55D9 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14442815D97600CE55D9 /* AppsHorizontalController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		C36D13CA280EE4EE00CE55D9 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		C36D14372814A58D00CE55D9 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		C36D143A2814AB6700CE55D9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C36D143D28159F3100CE55D9 /* AppsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewController.swift; sourceTree = "<group>"; };
+		C36D143F2815A01800CE55D9 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
+		C36D14422815A44300CE55D9 /* AppsGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCollectionViewCell.swift; sourceTree = "<group>"; };
+		C36D14442815D97600CE55D9 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		E7C906338A9CB0AFCD5360FA /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +74,6 @@
 				E7C906338A9CB0AFCD5360FA /* Pods-AppStore.debug.xcconfig */,
 				534DF3447E814F33DCE2E712 /* Pods-AppStore.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -108,6 +115,7 @@
 		C36D13852805B8F800CE55D9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C36D143C28159F0300CE55D9 /* Apps */,
 				C36D13C1280E17DF00CE55D9 /* Search */,
 				C36D138C2805BEF200CE55D9 /* Main */,
 			);
@@ -166,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				C36D138D2805BF0C00CE55D9 /* BaseTabBarController.swift */,
+				C36D143F2815A01800CE55D9 /* BaseListController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -201,6 +210,24 @@
 				C36D143A2814AB6700CE55D9 /* NetworkManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		C36D143C28159F0300CE55D9 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				C36D143D28159F3100CE55D9 /* AppsCollectionViewController.swift */,
+				C36D14412815A42700CE55D9 /* Views */,
+				C36D14442815D97600CE55D9 /* AppsHorizontalController.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		C36D14412815A42700CE55D9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C36D14422815A44300CE55D9 /* AppsGroupCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,9 +349,13 @@
 				C36D13C3280E180D00CE55D9 /* SearchCollectionViewController.swift in Sources */,
 				C36D138E2805BF0C00CE55D9 /* BaseTabBarController.swift in Sources */,
 				C36D13722805B4BD00CE55D9 /* AppDelegate.swift in Sources */,
+				C36D14402815A01800CE55D9 /* BaseListController.swift in Sources */,
 				C36D13742805B4BD00CE55D9 /* SceneDelegate.swift in Sources */,
+				C36D143E28159F3100CE55D9 /* AppsCollectionViewController.swift in Sources */,
+				C36D14432815A44300CE55D9 /* AppsGroupCollectionViewCell.swift in Sources */,
 				C36D14382814A58E00CE55D9 /* Search.swift in Sources */,
 				C36D13C6280E22B800CE55D9 /* SearchCollectionViewCell.swift in Sources */,
+				C36D14452815D97600CE55D9 /* AppsHorizontalController.swift in Sources */,
 				C36D13CB280EE4EE00CE55D9 /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

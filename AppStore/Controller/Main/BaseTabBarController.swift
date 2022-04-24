@@ -20,7 +20,7 @@ class BaseTabBarController: UITabBarController {
         setViewControllers(
             [
                 createNavController(forViewController: UIViewController(), withTitle: "Today", andImageName: "today_icon"),
-                createNavController(forViewController: UIViewController(), withTitle: "Apps", andImageName: "apps"),
+                createNavController(forViewController: AppsCollectionViewController(), withTitle: "Apps", andImageName: "apps"),
                 createNavController(forViewController: SearchCollectionViewController(), withTitle: "Search", andImageName: "search")
             ], animated: true)
     }

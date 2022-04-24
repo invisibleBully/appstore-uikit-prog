@@ -8,7 +8,7 @@
 import UIKit
 
 
-class SearchCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SearchCollectionViewController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     
     fileprivate var appResults: [Result] = []
@@ -47,17 +47,6 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     
     
-    init() { super.init(collectionViewLayout: UICollectionViewFlowLayout()) }
-    
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    
-    
-    
     fileprivate func fetchItunesApps(){
         NetworkManager.shared.fetchApps(searchTerm: "Twitter", completion: { [weak self] (results, error)  in
             guard let self = self else { return }
@@ -87,7 +76,7 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        enterSearchTermLabel.isHidden = appResults.count != 0 
+        enterSearchTermLabel.isHidden = appResults.count != 0
         return appResults.count
     }
     
