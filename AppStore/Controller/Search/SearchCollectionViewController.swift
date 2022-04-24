@@ -12,13 +12,36 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     
     fileprivate var appResults: [Result] = []
+    let searchController = UISearchController(searchResultsController: nil)
+    var timer: Timer?
+    
+    
+    
+    private lazy var enterSearchTermLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Please enter search term above"
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        return label
+    }()
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.register(SearchCollectionViewCell.self,
                                 forCellWithReuseIdentifier: SearchCollectionViewCell.cellIdentifier)
-        fetchItunesApps()
+        //fetchItunesApps()
+        setupSearchBar()
+        collectionView.addSubview(enterSearchTermLabel)
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        enterSearchTermLabel.fillSuperview(padding: .init(top: 100, left: 50, bottom: 0, right: 50))
     }
     
     
@@ -36,8 +59,7 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     
     fileprivate func fetchItunesApps(){
-        
-        NetworkManager.shared.fetchApps(completion: { [weak self] (results, error)  in
+        NetworkManager.shared.fetchApps(searchTerm: "Twitter", completion: { [weak self] (results, error)  in
             guard let self = self else { return }
             if let error = error { print("Error fetching data", error); return }
             self.appResults = results
@@ -45,6 +67,14 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
                 self.collectionView.reloadData()
             }
         })
+    }
+    
+    
+    fileprivate func setupSearchBar(){
+        definesPresentationContext = true
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
     }
     
     
@@ -56,6 +86,8 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        enterSearchTermLabel.isHidden = appResults.count != 0 
         return appResults.count
     }
     
@@ -82,6 +114,33 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
         return .init(width: view.frame.width, height: 350)
     }
     
+    
+    
+}
+
+
+extension SearchCollectionViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //introduce delay
+        //throttling
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            //fire search
+            NetworkManager.shared.fetchApps(searchTerm: searchText) { [weak self] results, error in
+                if let error = error {
+                    print("Something happened...\(error)")
+                    return
+                }
+                self?.appResults = results
+                DispatchQueue.main.async {
+                    self?.collectionView.reloadData()
+                }
+            }
+        })
+        
+        
+    }
     
     
 }

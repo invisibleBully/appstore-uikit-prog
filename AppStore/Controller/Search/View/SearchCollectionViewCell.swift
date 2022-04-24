@@ -25,7 +25,6 @@ class SearchCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 12.0
         imageView.layer.borderColor = UIColor.lightGray.cgColor
         imageView.layer.borderWidth = 0.8
-        imageView.backgroundColor = .red
         imageView.widthAnchor.constraint(equalToConstant: 64).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 64).isActive = true
         return imageView
