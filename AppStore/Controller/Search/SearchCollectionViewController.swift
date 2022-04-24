@@ -11,13 +11,14 @@ import UIKit
 class SearchCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     
-    
+    fileprivate var appResults: [Result] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.register(SearchCollectionViewCell.self,
                                 forCellWithReuseIdentifier: SearchCollectionViewCell.cellIdentifier)
+        fetchItunesApps()
     }
     
     
@@ -32,6 +33,22 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     
     
+    
+    
+    fileprivate func fetchItunesApps(){
+        
+        NetworkManager.shared.fetchApps(completion: { [weak self] (results, error)  in
+            guard let self = self else { return }
+            if let error = error { print("Error fetching data", error); return }
+            self.appResults = results
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
+    }
+    
+    
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -39,7 +56,7 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return appResults.count
     }
     
     
@@ -50,8 +67,12 @@ class SearchCollectionViewController: UICollectionViewController, UICollectionVi
                                                             for: indexPath) as? SearchCollectionViewCell else {
             return UICollectionViewCell()
         }
+        let result = appResults[indexPath.item]
+        cell.configureCell(forApp: result)
         return cell
     }
+    
+    
     
     
     func collectionView(_ collectionView: UICollectionView,

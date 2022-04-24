@@ -6,21 +6,25 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "SearchCollectionViewCell"
     
     
-    private lazy var screenShotImageViewOne = createScreenshotImageView()
-    private lazy var screenShotImageViewTwo = createScreenshotImageView()
-    private lazy var screenShotImageViewThree = createScreenshotImageView()
+    lazy var screenShotImageViewOne = createScreenshotImageView()
+    lazy var screenShotImageViewTwo = createScreenshotImageView()
+    lazy var screenShotImageViewThree = createScreenshotImageView()
     
     
     
-    private lazy var appImageView: UIImageView = {
+    lazy var appImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 12.0
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.layer.borderWidth = 0.8
         imageView.backgroundColor = .red
         imageView.widthAnchor.constraint(equalToConstant: 64).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 64).isActive = true
@@ -29,7 +33,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     
     
-    private lazy var nameLabel: UILabel = {
+    lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "App Name"
         return label
@@ -37,21 +41,21 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     
     
-    private lazy var categoryLabel: UILabel = {
+    lazy var categoryLabel: UILabel = {
         let label = UILabel()
         label.text = "Photos & Videos"
         return label
     }()
     
     
-    private lazy var ratingLabel: UILabel = {
+    lazy var ratingLabel: UILabel = {
         let label = UILabel()
         label.text = "9.26M"
         return label
     }()
     
     
-    private lazy var getButton: UIButton = {
+    lazy var getButton: UIButton = {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 15.0
         button.setTitle("GET", for: .normal)
@@ -105,7 +109,6 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(parentStackView)
@@ -120,7 +123,11 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     func createScreenshotImageView() -> UIImageView {
         let imageView = UIImageView()
-        imageView.backgroundColor = .blue
+        imageView.layer.cornerRadius = 6.0
+        imageView.clipsToBounds = true
+        imageView.layer.borderColor = UIColor.gray.cgColor
+        imageView.layer.borderWidth = 0.1
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }
     
@@ -128,6 +135,28 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     private func setupStackView(){
         parentStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
+    }
+    
+    
+    func configureCell(forApp appResult: Result){
+        nameLabel.text = appResult.trackName
+        categoryLabel.text = appResult.primaryGenreName
+        ratingLabel.text = "Rating: \(floor(appResult.averageUserRating ?? 0))"
+        guard let appIconUrl = URL(string: appResult.artworkUrl100 )else { return }
+        appImageView.sd_setImage(with: appIconUrl, completed: nil)
+        
+        
+        screenShotImageViewOne.sd_setImage(with: URL(string: appResult.screenshotUrls[0]), completed: nil)
+        
+        
+        if appResult.screenshotUrls.count > 1 {
+            screenShotImageViewTwo.sd_setImage(with: URL(string: appResult.screenshotUrls[1]), completed: nil)
+        }
+        
+        if appResult.screenshotUrls.count > 2 {
+            screenShotImageViewThree.sd_setImage(with: URL(string: appResult.screenshotUrls[2]), completed: nil)
+        }
+        
     }
     
     
