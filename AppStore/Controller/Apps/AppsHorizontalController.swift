@@ -13,8 +13,8 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .blue
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "id")
+        collectionView.backgroundColor = .white
+        collectionView.register(AppsRowCell.self, forCellWithReuseIdentifier: AppsRowCell.identifier)
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout{
             layout.scrollDirection = .horizontal
         }
@@ -27,8 +27,10 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "id", for: indexPath)
-        cell.backgroundColor = .red
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCell.identifier,
+                                                            for: indexPath) as? AppsRowCell else {
+            return UICollectionViewCell()
+        }
         return cell
     }
     
@@ -36,8 +38,8 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let height = (view.frame.height - 44) / 3 //12 12 10 10 
-        return .init(width: view.frame.width , height: height)
+        let height = (view.frame.height - 44) / 3 //12 12 10 10
+        return .init(width: view.frame.width - 48, height: height)
     }
     
     

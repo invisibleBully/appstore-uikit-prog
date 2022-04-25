@@ -23,6 +23,7 @@
 		C36D14402815A01800CE55D9 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D143F2815A01800CE55D9 /* BaseListController.swift */; };
 		C36D14432815A44300CE55D9 /* AppsGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14422815A44300CE55D9 /* AppsGroupCollectionViewCell.swift */; };
 		C36D14452815D97600CE55D9 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14442815D97600CE55D9 /* AppsHorizontalController.swift */; };
+		C36D14472816C11F00CE55D9 /* AppsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14462816C11F00CE55D9 /* AppsRowCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		C36D143F2815A01800CE55D9 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		C36D14422815A44300CE55D9 /* AppsGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		C36D14442815D97600CE55D9 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
+		C36D14462816C11F00CE55D9 /* AppsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsRowCell.swift; sourceTree = "<group>"; };
 		E7C906338A9CB0AFCD5360FA /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,8 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				C36D143D28159F3100CE55D9 /* AppsCollectionViewController.swift */,
-				C36D14412815A42700CE55D9 /* Views */,
 				C36D14442815D97600CE55D9 /* AppsHorizontalController.swift */,
+				C36D14412815A42700CE55D9 /* Views */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				C36D14422815A44300CE55D9 /* AppsGroupCollectionViewCell.swift */,
+				C36D14462816C11F00CE55D9 /* AppsRowCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				C36D138E2805BF0C00CE55D9 /* BaseTabBarController.swift in Sources */,
 				C36D13722805B4BD00CE55D9 /* AppDelegate.swift in Sources */,
 				C36D14402815A01800CE55D9 /* BaseListController.swift in Sources */,
+				C36D14472816C11F00CE55D9 /* AppsRowCell.swift in Sources */,
 				C36D13742805B4BD00CE55D9 /* SceneDelegate.swift in Sources */,
 				C36D143E28159F3100CE55D9 /* AppsCollectionViewController.swift in Sources */,
 				C36D14432815A44300CE55D9 /* AppsGroupCollectionViewCell.swift in Sources */,

@@ -18,17 +18,15 @@ class AppsGroupCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "App Section"
-        label.font = .systemFont(ofSize: 30, weight: .bold)
+        label.font = .systemFont(ofSize: 28, weight: .medium)
         return label
     }()
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .lightGray
         addSubview(titleLabel)
         addSubview(horizontalController.view)
-        horizontalController.view.backgroundColor = .blue
     }
     
     
@@ -42,7 +40,7 @@ class AppsGroupCollectionViewCell: UICollectionViewCell {
         titleLabel.anchor(top: topAnchor,
                           leading: leadingAnchor,
                           bottom: nil,
-                          trailing: trailingAnchor)
+                          trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 0, right: 0))
         horizontalController.view.anchor(top: titleLabel.bottomAnchor,
                                          leading: leadingAnchor,
                                          bottom: bottomAnchor,
