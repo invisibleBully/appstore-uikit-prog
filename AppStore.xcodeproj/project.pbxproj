@@ -19,11 +19,14 @@
 		C36D13CB280EE4EE00CE55D9 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D13CA280EE4EE00CE55D9 /* VerticalStackView.swift */; };
 		C36D14382814A58E00CE55D9 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14372814A58D00CE55D9 /* Search.swift */; };
 		C36D143B2814AB6700CE55D9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D143A2814AB6700CE55D9 /* NetworkManager.swift */; };
-		C36D143E28159F3100CE55D9 /* AppsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D143D28159F3100CE55D9 /* AppsCollectionViewController.swift */; };
+		C36D143E28159F3100CE55D9 /* AppsPageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D143D28159F3100CE55D9 /* AppsPageCollectionViewController.swift */; };
 		C36D14402815A01800CE55D9 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D143F2815A01800CE55D9 /* BaseListController.swift */; };
 		C36D14432815A44300CE55D9 /* AppsGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14422815A44300CE55D9 /* AppsGroupCollectionViewCell.swift */; };
 		C36D14452815D97600CE55D9 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14442815D97600CE55D9 /* AppsHorizontalController.swift */; };
 		C36D14472816C11F00CE55D9 /* AppsRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14462816C11F00CE55D9 /* AppsRowCell.swift */; };
+		C36D14492817207200CE55D9 /* AppsPageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D14482817207200CE55D9 /* AppsPageHeaderView.swift */; };
+		C36D144B2817305F00CE55D9 /* AppsHeaderHorizontalCollectionViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D144A2817305F00CE55D9 /* AppsHeaderHorizontalCollectionViewViewController.swift */; };
+		C36D144D281740C400CE55D9 /* AppsHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D144C281740C400CE55D9 /* AppsHeaderCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,11 +45,14 @@
 		C36D13CA280EE4EE00CE55D9 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		C36D14372814A58D00CE55D9 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		C36D143A2814AB6700CE55D9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		C36D143D28159F3100CE55D9 /* AppsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewController.swift; sourceTree = "<group>"; };
+		C36D143D28159F3100CE55D9 /* AppsPageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageCollectionViewController.swift; sourceTree = "<group>"; };
 		C36D143F2815A01800CE55D9 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		C36D14422815A44300CE55D9 /* AppsGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		C36D14442815D97600CE55D9 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		C36D14462816C11F00CE55D9 /* AppsRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsRowCell.swift; sourceTree = "<group>"; };
+		C36D14482817207200CE55D9 /* AppsPageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageHeaderView.swift; sourceTree = "<group>"; };
+		C36D144A2817305F00CE55D9 /* AppsHeaderHorizontalCollectionViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalCollectionViewViewController.swift; sourceTree = "<group>"; };
+		C36D144C281740C400CE55D9 /* AppsHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		E7C906338A9CB0AFCD5360FA /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,8 +223,9 @@
 		C36D143C28159F0300CE55D9 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
-				C36D143D28159F3100CE55D9 /* AppsCollectionViewController.swift */,
+				C36D144A2817305F00CE55D9 /* AppsHeaderHorizontalCollectionViewViewController.swift */,
 				C36D14442815D97600CE55D9 /* AppsHorizontalController.swift */,
+				C36D143D28159F3100CE55D9 /* AppsPageCollectionViewController.swift */,
 				C36D14412815A42700CE55D9 /* Views */,
 			);
 			path = Apps;
@@ -229,6 +236,8 @@
 			children = (
 				C36D14422815A44300CE55D9 /* AppsGroupCollectionViewCell.swift */,
 				C36D14462816C11F00CE55D9 /* AppsRowCell.swift */,
+				C36D14482817207200CE55D9 /* AppsPageHeaderView.swift */,
+				C36D144C281740C400CE55D9 /* AppsHeaderCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,12 +359,15 @@
 				C36D143B2814AB6700CE55D9 /* NetworkManager.swift in Sources */,
 				C36D13C9280ED3CD00CE55D9 /* UIView+Extension.swift in Sources */,
 				C36D13C3280E180D00CE55D9 /* SearchCollectionViewController.swift in Sources */,
+				C36D144D281740C400CE55D9 /* AppsHeaderCollectionViewCell.swift in Sources */,
 				C36D138E2805BF0C00CE55D9 /* BaseTabBarController.swift in Sources */,
 				C36D13722805B4BD00CE55D9 /* AppDelegate.swift in Sources */,
 				C36D14402815A01800CE55D9 /* BaseListController.swift in Sources */,
 				C36D14472816C11F00CE55D9 /* AppsRowCell.swift in Sources */,
+				C36D14492817207200CE55D9 /* AppsPageHeaderView.swift in Sources */,
 				C36D13742805B4BD00CE55D9 /* SceneDelegate.swift in Sources */,
-				C36D143E28159F3100CE55D9 /* AppsCollectionViewController.swift in Sources */,
+				C36D143E28159F3100CE55D9 /* AppsPageCollectionViewController.swift in Sources */,
+				C36D144B2817305F00CE55D9 /* AppsHeaderHorizontalCollectionViewViewController.swift in Sources */,
 				C36D14432815A44300CE55D9 /* AppsGroupCollectionViewCell.swift in Sources */,
 				C36D14382814A58E00CE55D9 /* Search.swift in Sources */,
 				C36D13C6280E22B800CE55D9 /* SearchCollectionViewCell.swift in Sources */,
@@ -507,6 +519,7 @@
 				INFOPLIST_FILE = AppStore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -535,6 +548,7 @@
 				INFOPLIST_FILE = AppStore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

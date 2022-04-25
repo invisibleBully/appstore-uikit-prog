@@ -10,13 +10,19 @@ import UIKit
 
 
 
-class AppsCollectionViewController: BaseListController, UICollectionViewDelegateFlowLayout {
+class AppsPageCollectionViewController: BaseListController, UICollectionViewDelegateFlowLayout {
     
+    
+    let headerId = "id"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(AppsGroupCollectionViewCell.self,
                                 forCellWithReuseIdentifier: AppsGroupCollectionViewCell.identifier)
+        collectionView.register(AppsPageHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: headerId)
+        
     }
     
     
@@ -45,6 +51,16 @@ class AppsCollectionViewController: BaseListController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 16, left: 0, bottom: 0, right: 0)
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: view.frame.width, height: 300)
     }
     
     
