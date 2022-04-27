@@ -9,10 +9,8 @@ import Foundation
 
 
 struct SearchResultResponse: Decodable {
-    
     let resultCount: Int
     let results: [Result]
-    
 }
 
 

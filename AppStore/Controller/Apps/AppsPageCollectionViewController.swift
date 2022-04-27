@@ -15,6 +15,15 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
     
     let headerId = "id"
     var groups = [AppGroup]()
+    var socialApps = [Social]()
+    
+    let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.color = .blue
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
+    }()
     
     
     override func viewDidLoad() {
@@ -23,7 +32,9 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
                                 forCellWithReuseIdentifier: AppsGroupCollectionViewCell.identifier)
         collectionView.register(AppsPageHeaderView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: headerId)
+                                withReuseIdentifier: AppsPageHeaderView.identifier)
+        view.addSubview(activityIndicator)
+        activityIndicator.fillSuperview()
         fetchData()
     }
     
@@ -68,7 +79,7 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 16, left: 0, bottom: 0, right: 0)
+        return .init(top: 16, left: 0, bottom: 0, right: 16)
     }
     
     
@@ -79,9 +90,12 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                     withReuseIdentifier: headerId,
-                                                                     for: indexPath)
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                           withReuseIdentifier: AppsPageHeaderView.identifier,
+                                                                           for: indexPath) as? AppsPageHeaderView else { return UICollectionReusableView() }
+        header.appHeaderHorizontalController.socialsApps = self.socialApps
+        header.appHeaderHorizontalController.collectionView.reloadData()
+        
         return header
     }
     
@@ -90,7 +104,7 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: view.frame.width, height: 0)
+        return .init(width: view.frame.width, height: 300)
     }
     
     
@@ -123,7 +137,25 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
         }
         
         
+        dispatchGroup.enter()
+        NetworkManager.shared.fetchSocialApps { [weak self] socials, error in
+            
+            dispatchGroup.leave()
+            if let _ = error {
+                //display error message
+                return
+            }
+            
+            self?.socialApps = socials ?? []
+            
+        }
+        
+        
+        
         dispatchGroup.notify(queue: .main) { [weak self] in
+            
+            self?.activityIndicator.stopAnimating()
+            
             if let group = group1 {
                 self?.groups.append(group)
             }
@@ -139,6 +171,7 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
         
     }
     
+
     
 }
 

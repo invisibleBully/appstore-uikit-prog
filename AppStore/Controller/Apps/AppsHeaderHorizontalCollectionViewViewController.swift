@@ -12,6 +12,8 @@ import UIKit
 class AppsHeaderHorizontalCollectionViewController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     
+    var socialsApps = [Social]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -21,16 +23,20 @@ class AppsHeaderHorizontalCollectionViewController: BaseListController, UICollec
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
+ 
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return socialsApps.count
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsHeaderCollectionViewCell.identifier, for: indexPath) as? AppsHeaderCollectionViewCell else { return UICollectionViewCell() }
+        //cell.companyLabel.text = "Maybach Muzik"
+        let app = socialsApps[indexPath.item]
+        cell.configureCell(app: app)
         return cell
     }
     

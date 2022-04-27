@@ -13,7 +13,7 @@ class AppsPageHeaderView: UICollectionReusableView {
     
     
     let appHeaderHorizontalController = AppsHeaderHorizontalCollectionViewController()
-    
+    static let identifier = "AppsPageHeaderView"
     
     override init(frame: CGRect) {
         super.init(frame: frame)

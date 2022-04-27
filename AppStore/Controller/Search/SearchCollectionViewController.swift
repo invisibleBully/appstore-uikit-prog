@@ -51,7 +51,7 @@ class SearchCollectionViewController: BaseListController, UICollectionViewDelega
         NetworkManager.shared.fetchApps(searchTerm: "Twitter", completion: { [weak self] (results, error)  in
             guard let self = self else { return }
             if let error = error { print("Error fetching data", error); return }
-            self.appResults = results
+            self.appResults = results?.results ?? []
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -121,7 +121,7 @@ extension SearchCollectionViewController: UISearchBarDelegate {
                     print("Something happened...\(error)")
                     return
                 }
-                self?.appResults = results
+                self?.appResults = results?.results ?? []
                 DispatchQueue.main.async {
                     self?.collectionView.reloadData()
                 }

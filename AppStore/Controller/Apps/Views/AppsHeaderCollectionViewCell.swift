@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import SDWebImage
 
 class AppsHeaderCollectionViewCell: UICollectionViewCell {
     
@@ -35,9 +35,11 @@ class AppsHeaderCollectionViewCell: UICollectionViewCell {
     
     lazy var bannerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 0.2
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -70,5 +72,10 @@ class AppsHeaderCollectionViewCell: UICollectionViewCell {
     }
     
     
+    func configureCell(app: Social){
+        companyLabel.text = app.name
+        titleLabel.text = app.tagline
+        bannerImageView.sd_setImage(with: URL(string: app.imageUrl), completed: nil)
+    }
     
 }
