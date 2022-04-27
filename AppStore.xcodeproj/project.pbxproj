@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		06B38A060EF5A2462FD52CCB /* Pods_AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06321471B14365550625F317 /* Pods_AppStore.framework */; };
+		C305D4032819595D00BD93B8 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C305D4022819595D00BD93B8 /* AppGroup.swift */; };
 		C36D13722805B4BD00CE55D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D13712805B4BD00CE55D9 /* AppDelegate.swift */; };
 		C36D13742805B4BD00CE55D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D13732805B4BD00CE55D9 /* SceneDelegate.swift */; };
 		C36D137B2805B4BF00CE55D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36D137A2805B4BF00CE55D9 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		06321471B14365550625F317 /* Pods_AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		534DF3447E814F33DCE2E712 /* Pods-AppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.release.xcconfig"; path = "Target Support Files/Pods-AppStore/Pods-AppStore.release.xcconfig"; sourceTree = "<group>"; };
+		C305D4022819595D00BD93B8 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		C36D136E2805B4BD00CE55D9 /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36D13712805B4BD00CE55D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C36D13732805B4BD00CE55D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				C36D14372814A58D00CE55D9 /* Search.swift */,
+				C305D4022819595D00BD93B8 /* AppGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C36D143B2814AB6700CE55D9 /* NetworkManager.swift in Sources */,
+				C305D4032819595D00BD93B8 /* AppGroup.swift in Sources */,
 				C36D13C9280ED3CD00CE55D9 /* UIView+Extension.swift in Sources */,
 				C36D13C3280E180D00CE55D9 /* SearchCollectionViewController.swift in Sources */,
 				C36D144D281740C400CE55D9 /* AppsHeaderCollectionViewCell.swift in Sources */,
