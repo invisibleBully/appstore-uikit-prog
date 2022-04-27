@@ -11,6 +11,9 @@ import UIKit
 
 class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlowLayout {
     
+    
+    var appGroups: AppGroup?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -22,14 +25,19 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return appGroups?.feed.results.count ?? 0
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsRowCell.identifier,
                                                             for: indexPath) as? AppsRowCell else {
+            
             return UICollectionViewCell()
+        }
+        
+        if let feedResult = appGroups?.feed.results[indexPath.row] {
+            cell.configureCell(forResult: feedResult)
         }
         return cell
     }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 //make convenience init
 
@@ -20,7 +21,8 @@ class AppsRowCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .purple
+        imageView.layer.borderWidth = 0.1
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
         return imageView
     }()
     
@@ -103,6 +105,14 @@ class AppsRowCell: UICollectionViewCell {
         
     }
     
+    
+    
+    func configureCell(forResult feedResult: FeedResult){
+        imageView.sd_setImage(with: URL(string: feedResult.artworkUrl100), completed: nil)
+        nameLabel.text = feedResult.name
+        companyNameLabel.text = feedResult.artistName
+        
+    }
     
     
     

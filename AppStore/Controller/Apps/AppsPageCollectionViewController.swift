@@ -14,6 +14,8 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
     
     
     let headerId = "id"
+    var groups = [AppGroup]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +35,25 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return groups.count
     }
     
     
     
     
-    override func collectionView(_ collectionView: UICollectionView,
-                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppsGroupCollectionViewCell.identifier,
                                                             for: indexPath) as? AppsGroupCollectionViewCell else { return UICollectionViewCell() }
+        
+        let group = groups[indexPath.item]
+        
+        cell.titleLabel.text = group.feed.title
+        cell.horizontalController.appGroups = group
+        cell.horizontalController.collectionView.reloadData()
         return cell
     }
+    
     
     
     func collectionView(_ collectionView: UICollectionView,
@@ -53,6 +62,9 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
         return .init(width: view.frame.width, height: 300)
     }
     
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -60,35 +72,71 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
     }
     
     
+    
+    
+    
     override func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                     withReuseIdentifier: headerId,
+                                                                     for: indexPath)
         return header
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: view.frame.width, height: 300)
+        return .init(width: view.frame.width, height: 0)
     }
     
     
     
     fileprivate func fetchData(){
-        NetworkManager.shared.fetchGames(completion:  { [weak self] appGroup,error in
+        
+        let dispatchGroup = DispatchGroup()
+        var group1: AppGroup?
+        var group2: AppGroup?
+        
+        dispatchGroup.enter()
+        NetworkManager.shared.fetchTopFree(completion:  { appGroup,error in
+            dispatchGroup.leave()
             if let _ = error {
-                //display error message
                 return
             }
-            
-            DispatchQueue.main.async {
-                //refresh collectionView
-                //print(appGroup?.feed.results)
-                self?.collectionView.reloadData()
-            }
+            group1 = appGroup
         })
+        
+        
+        
+        dispatchGroup.enter()
+        NetworkManager.shared.fetchTopPaid { appGroup, error in
+            
+            dispatchGroup.leave()
+            if let _ = error {
+                return
+            }
+            group2 = appGroup
+        }
+        
+        
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            if let group = group1 {
+                self?.groups.append(group)
+            }
+            
+            if let group = group2 {
+                self?.groups.append(group)
+            }
+            
+            self?.collectionView.reloadData()
+            
+        }
+        
+        
     }
     
     

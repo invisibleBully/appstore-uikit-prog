@@ -37,16 +37,39 @@ class NetworkManager {
     
     
     
-    func fetchGames(completion: @escaping (AppGroup?, Error?) -> ()){
+    func fetchTopFree(completion: @escaping (AppGroup?, Error?) -> ()){
         
-        guard let url = URL(string: "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json") else { return }
+        fetchAppGroups(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json",
+                       completion: completion)
+        
+    }
+    
+    
+    
+    
+    
+    func fetchTopPaid(completion: @escaping (AppGroup?, Error?) -> ()){
+        
+        fetchAppGroups(urlString: "https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/50/apps.json",
+                       completion: completion)
+        
+    }
+    
+    
+    
+    
+    
+    
+    func fetchAppGroups(urlString: String, completion: @escaping (AppGroup?, Error?) -> ()){
+        
+        guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(nil, error)
                 return
             }
-        
+            
             guard let data = data else { return }
             
             do {
@@ -56,10 +79,8 @@ class NetworkManager {
                 completion(nil, error)
             }
         }.resume()
+        
     }
-    
-    
-    
     
     
 }
