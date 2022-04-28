@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlowLayout {
+class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
     
     var appGroups: AppGroup?
@@ -18,9 +18,7 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         collectionView.register(AppsRowCell.self, forCellWithReuseIdentifier: AppsRowCell.identifier)
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout{
-            layout.scrollDirection = .horizontal
-        }
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     
@@ -53,7 +51,7 @@ class AppsHorizontalController: BaseListController, UICollectionViewDelegateFlow
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 12, left: 16, bottom: 12, right: 16)
+        return .init(top: 12, left: 0, bottom: 12, right: 0)
     }
     
     

@@ -28,6 +28,8 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        collectionView.backgroundColor = .white
         collectionView.register(AppsGroupCollectionViewCell.self,
                                 forCellWithReuseIdentifier: AppsGroupCollectionViewCell.identifier)
         collectionView.register(AppsPageHeaderView.self,
@@ -36,6 +38,7 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
         view.addSubview(activityIndicator)
         activityIndicator.fillSuperview()
         fetchData()
+        
     }
     
     
