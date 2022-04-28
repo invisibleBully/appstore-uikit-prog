@@ -65,6 +65,11 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
         cell.titleLabel.text = group.feed.title
         cell.horizontalController.appGroups = group
         cell.horizontalController.collectionView.reloadData()
+        cell.horizontalController.didSelectHandler = { [weak self] feedResult in
+            let controller = AppDetailsCollectionViewController()
+            controller.navigationItem.title = feedResult.name
+            self?.navigationController?.pushViewController(controller, animated: true)
+        }
         return cell
     }
     
@@ -110,6 +115,16 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
         return .init(width: view.frame.width, height: 300)
     }
     
+    
+    
+}
+
+
+
+
+
+
+extension AppsPageCollectionViewController {
     
     
     fileprivate func fetchData(){
@@ -168,16 +183,11 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
             }
             
             self?.collectionView.reloadData()
-            
         }
         
         
     }
-    
-
-    
 }
-
 
 
 

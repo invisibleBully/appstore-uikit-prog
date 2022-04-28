@@ -31,6 +31,7 @@
 		C3C649212819C993006CBC75 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C649202819C993006CBC75 /* Social.swift */; };
 		C3D923CB281ADC4700D3A1C9 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */; };
 		C3D923CD281B3BAD00D3A1C9 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */; };
+		C3D923CF281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CE281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		C3C649202819C993006CBC75 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
+		C3D923CE281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsCollectionViewController.swift; sourceTree = "<group>"; };
 		E7C906338A9CB0AFCD5360FA /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 				C36D143D28159F3100CE55D9 /* AppsPageCollectionViewController.swift */,
 				C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */,
 				C36D14412815A42700CE55D9 /* Views */,
+				C3D923CE281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D923CF281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift in Sources */,
 				C36D143B2814AB6700CE55D9 /* NetworkManager.swift in Sources */,
 				C305D4032819595D00BD93B8 /* AppGroup.swift in Sources */,
 				C3C649212819C993006CBC75 /* Social.swift in Sources */,

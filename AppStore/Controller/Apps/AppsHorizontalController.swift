@@ -13,6 +13,7 @@ class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDe
     
     
     var appGroups: AppGroup?
+    var didSelectHandler: ((FeedResult) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,15 @@ class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDe
         return 10
     }
     
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let app = appGroups?.feed.results[indexPath.item] {
+            didSelectHandler?(app)
+        }
+
+    }
     
     
     
