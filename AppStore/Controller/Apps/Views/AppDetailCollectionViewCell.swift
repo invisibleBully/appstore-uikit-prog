@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import SDWebImage
 
 class AppDetailCollectionViewCell: UICollectionViewCell {
     
@@ -19,7 +19,9 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
     lazy var appIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 16
-        imageView.backgroundColor = .red
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 0.1
+        imageView.layer.borderColor = UIColor.gray.cgColor
         return imageView
     }()
     
@@ -28,7 +30,6 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
     lazy var appNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.text = "App Name"
         label.font = .systemFont(ofSize: 18, weight: .bold)
         return label
     }()
@@ -37,7 +38,6 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
     
     lazy var appDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "App Description"
         label.font = .systemFont(ofSize: 13, weight: .regular)
         return label
     }()
@@ -46,7 +46,6 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
     
     lazy var priceButton: UIButton = {
         let button = UIButton()
-        button.setTitle("$4.99", for: .normal)
         button.titleLabel?.textColor = .white
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 16
@@ -68,7 +67,6 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
     lazy var appVersionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13, weight: .regular)
-        label.text = "1.09"
         return label
     }()
     
@@ -78,7 +76,6 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
     
     lazy var releaseNoteLabel: UILabel = {
         let label = UILabel()
-        label.text = "Release Notes"
         label.numberOfLines = 0
         return label
     }()
@@ -100,9 +97,14 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
+    lazy var subLabelStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [priceButton, UIView()])
+        return stackView
+    }()
+    
     
     lazy var labelStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [appNameLabel, appDescriptionLabel, priceButton])
+        let stackView = UIStackView(arrangedSubviews: [appNameLabel, subLabelStackView ,UIView()])
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fill
@@ -131,6 +133,16 @@ class AppDetailCollectionViewCell: UICollectionViewCell {
         appIconImageView.constrainHeight(constant: 140)
         priceButton.constrainWidth(constant: 80)
         priceButton.constrainHeight(constant: 32)
+    }
+    
+    
+    func configureCell(app: Result?){
+        if let app = app {
+            appNameLabel.text = app.trackName
+            releaseNoteLabel.text = app.releaseNotes
+            appIconImageView.sd_setImage(with: URL(string: app.artworkUrl100), completed: nil)
+            priceButton.setTitle(app.formattedPrice, for: .normal)
+        }
     }
     
     
