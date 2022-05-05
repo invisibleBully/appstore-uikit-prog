@@ -36,6 +36,8 @@
 		C3733D36282309D000F4FBFA /* ReviewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D35282309D000F4FBFA /* ReviewCollectionViewController.swift */; };
 		C3733D3828230BD100F4FBFA /* RatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D3728230BD100F4FBFA /* RatingCollectionViewCell.swift */; };
 		C3733D3A2823F02700F4FBFA /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D392823F02700F4FBFA /* Review.swift */; };
+		C3733D3D2824509300F4FBFA /* TodayCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D3C2824509300F4FBFA /* TodayCollectionViewController.swift */; };
+		C3733D402824514700F4FBFA /* TodayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D3F2824514700F4FBFA /* TodayCollectionViewCell.swift */; };
 		C3C649212819C993006CBC75 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C649202819C993006CBC75 /* Social.swift */; };
 		C3D923CB281ADC4700D3A1C9 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */; };
 		C3D923CD281B3BAD00D3A1C9 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */; };
@@ -75,6 +77,8 @@
 		C3733D35282309D000F4FBFA /* ReviewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewController.swift; sourceTree = "<group>"; };
 		C3733D3728230BD100F4FBFA /* RatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3733D392823F02700F4FBFA /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		C3733D3C2824509300F4FBFA /* TodayCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewController.swift; sourceTree = "<group>"; };
+		C3733D3F2824514700F4FBFA /* TodayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3C649202819C993006CBC75 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 		C36D13852805B8F800CE55D9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C3733D3B2824506C00F4FBFA /* Today */,
 				C36D143C28159F0300CE55D9 /* Apps */,
 				C36D13C1280E17DF00CE55D9 /* Search */,
 				C36D138C2805BEF200CE55D9 /* Main */,
@@ -297,6 +302,23 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		C3733D3B2824506C00F4FBFA /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				C3733D3E2824513500F4FBFA /* View */,
+				C3733D3C2824509300F4FBFA /* TodayCollectionViewController.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		C3733D3E2824513500F4FBFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3733D3F2824514700F4FBFA /* TodayCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -411,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3733D402824514700F4FBFA /* TodayCollectionViewCell.swift in Sources */,
 				C3D923CF281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift in Sources */,
 				C36D143B2814AB6700CE55D9 /* NetworkManager.swift in Sources */,
 				C305D4032819595D00BD93B8 /* AppGroup.swift in Sources */,
@@ -419,6 +442,7 @@
 				C3733D3A2823F02700F4FBFA /* Review.swift in Sources */,
 				C3D923CD281B3BAD00D3A1C9 /* BetterSnappingLayout.swift in Sources */,
 				C36D13C9280ED3CD00CE55D9 /* UIView+Extension.swift in Sources */,
+				C3733D3D2824509300F4FBFA /* TodayCollectionViewController.swift in Sources */,
 				C36D13C3280E180D00CE55D9 /* SearchCollectionViewController.swift in Sources */,
 				C36D144D281740C400CE55D9 /* AppsHeaderCollectionViewCell.swift in Sources */,
 				C36D138E2805BF0C00CE55D9 /* BaseTabBarController.swift in Sources */,

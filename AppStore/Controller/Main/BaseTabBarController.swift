@@ -19,7 +19,7 @@ class BaseTabBarController: UITabBarController {
     func setupChildViewControllers(){
         setViewControllers(
             [
-                createNavController(forViewController: UIViewController(), withTitle: "Today", andImageName: "today_icon"),
+                createNavController(forViewController: TodayCollectionViewController(), withTitle: "Today", andImageName: "today_icon"),
                 createNavController(forViewController: AppsPageCollectionViewController(), withTitle: "Apps", andImageName: "apps"),
                 createNavController(forViewController: SearchCollectionViewController(), withTitle: "Search", andImageName: "search")
             ], animated: true)
