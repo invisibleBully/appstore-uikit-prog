@@ -33,11 +33,12 @@ class AppDetailsCollectionViewController: BaseListController, UICollectionViewDe
         collectionView.backgroundColor = .white
         collectionView.register(AppDetailCollectionViewCell.self, forCellWithReuseIdentifier: AppDetailCollectionViewCell.identifier)
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: PreviewCollectionViewCell.identifier)
+        collectionView.register(ReviewCollectionViewCell.self, forCellWithReuseIdentifier: ReviewCollectionViewCell.identifier)
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     
@@ -47,9 +48,14 @@ class AppDetailsCollectionViewController: BaseListController, UICollectionViewDe
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppDetailCollectionViewCell.identifier, for: indexPath) as? AppDetailCollectionViewCell else { return UICollectionViewCell() }
             cell.configureCell(app: app)
             return cell
-        }else {
+        }else if indexPath.item == 1{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PreviewCollectionViewCell.identifier, for: indexPath) as? PreviewCollectionViewCell else { return UICollectionViewCell() }
             cell.horizontalController.app = app
+            return cell
+        }else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCollectionViewCell.identifier, for: indexPath) as? ReviewCollectionViewCell else {
+                return UICollectionViewCell()
+            }
             return cell
         }
         
@@ -66,8 +72,10 @@ class AppDetailsCollectionViewController: BaseListController, UICollectionViewDe
             dummyCell.layoutIfNeeded()
             let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
             return .init(width: view.frame.width, height: estimatedSize.height)
-        }else{
+        }else if indexPath.item == 1 {
             return .init(width: view.frame.width, height: 500)
+        }else {
+            return .init(width: view.frame.width, height: 280)
         }
         
         

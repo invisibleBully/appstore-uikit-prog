@@ -44,9 +44,19 @@ class PreviewCollectionViewCell: UICollectionViewCell {
                             leading: leadingAnchor,
                             bottom: nil,
                             trailing: trailingAnchor,
-                            padding: .init(top: 0, left: 20, bottom: 0, right: 0))
+                            padding: .init(top: 0,
+                                           left: 20,
+                                           bottom: 0,
+                                           right: 0))
         
-        horizontalController.view.anchor(top: previewLabel.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 20, left: 0, bottom: 0, right: 0))
+        horizontalController.view.anchor(top: previewLabel.bottomAnchor,
+                                         leading: leadingAnchor,
+                                         bottom: bottomAnchor,
+                                         trailing: trailingAnchor,
+                                         padding: .init(top: 20,
+                                                        left: 0,
+                                                        bottom: 0,
+                                                        right: 0))
     }
     
 }
