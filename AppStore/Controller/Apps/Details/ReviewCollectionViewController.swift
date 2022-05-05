@@ -13,6 +13,13 @@ import UIKit
 class ReviewCollectionViewController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
     
+    var reviews: Review? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -22,7 +29,7 @@ class ReviewCollectionViewController: HorizontalSnappingController, UICollection
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return reviews?.feed.entry.count ?? 0
     }
     
     
@@ -31,6 +38,9 @@ class ReviewCollectionViewController: HorizontalSnappingController, UICollection
                 RatingCollectionViewCell else {
                     return UICollectionViewCell()
                 }
+        if let entry = reviews?.feed.entry[indexPath.row] {
+            cell.configureCell(entry: entry)
+        }
         return cell
     }
     

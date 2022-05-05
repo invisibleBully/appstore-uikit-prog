@@ -66,9 +66,8 @@ class AppsPageCollectionViewController: BaseListController, UICollectionViewDele
         cell.horizontalController.appGroups = group
         cell.horizontalController.collectionView.reloadData()
         cell.horizontalController.didSelectHandler = { [weak self] feedResult in
-            let controller = AppDetailsCollectionViewController()
+            let controller = AppDetailsCollectionViewController(appId: feedResult.id)
             controller.navigationItem.title = feedResult.name
-            controller.appId = feedResult.id
             self?.navigationController?.pushViewController(controller, animated: true)
         }
         return cell

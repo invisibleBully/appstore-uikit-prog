@@ -11,29 +11,34 @@ import UIKit
 
 class AppDetailsCollectionViewController: BaseListController, UICollectionViewDelegateFlowLayout {
     
-    var appId: String! {
-        didSet{
-            let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
-            NetworkManager.shared.makeRequest(urlString: urlString) { [weak self] (result: SearchResultResponse?, err) in
-                self?.app = result?.results.first
-                DispatchQueue.main.async {
-                    self?.collectionView.reloadData()
-                }
-            }
-        }
-    }
+    //identify dependency + dependency injection constructor
+    //dependency
+    fileprivate let appId: String
     
     var app: Result?
+    var reviews: Review?
     
+    
+    init(appId: String) {
+        self.appId = appId
+        super.init()
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         collectionView.backgroundColor = .white
+        fetchData()
         collectionView.register(AppDetailCollectionViewCell.self, forCellWithReuseIdentifier: AppDetailCollectionViewCell.identifier)
         collectionView.register(PreviewCollectionViewCell.self, forCellWithReuseIdentifier: PreviewCollectionViewCell.identifier)
         collectionView.register(ReviewCollectionViewCell.self, forCellWithReuseIdentifier: ReviewCollectionViewCell.identifier)
+        
     }
     
     
@@ -56,6 +61,7 @@ class AppDetailsCollectionViewController: BaseListController, UICollectionViewDe
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCollectionViewCell.identifier, for: indexPath) as? ReviewCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            cell.horizontalController.reviews = reviews
             return cell
         }
         
@@ -79,6 +85,44 @@ class AppDetailsCollectionViewController: BaseListController, UICollectionViewDe
         }
         
         
+    }
+    
+    
+    
+    
+    
+    fileprivate func fetchData(){
+        let dispatchGroup = DispatchGroup()
+        let urlString = "https://itunes.apple.com/lookup?id=\(appId)"
+        
+        
+        dispatchGroup.enter()
+        NetworkManager.shared.makeRequest(urlString: urlString) { [weak self] (result: SearchResultResponse?, err) in
+            
+            dispatchGroup.leave()
+            if let err = err {
+                print("failed to decode JSON:", err.localizedDescription)
+                return
+            }
+            self?.app = result?.results.first
+        }
+        
+        let reviewsUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId)/sortby=mostrecent/json?1=en&cc=us"
+        
+        dispatchGroup.enter()
+        NetworkManager.shared.makeRequest(urlString: reviewsUrl) { [weak self] (result: Review?, error) in
+            
+            dispatchGroup.leave()
+            if let error = error {
+                print("failed to decode JSON:", error)
+                return
+            }
+            self?.reviews  = result
+        }
+        
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
     
     

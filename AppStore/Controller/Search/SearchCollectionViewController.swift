@@ -39,6 +39,9 @@ class SearchCollectionViewController: BaseListController, UICollectionViewDelega
     }
     
     
+    
+    
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         enterSearchTermLabel.fillSuperview(padding: .init(top: 100, left: 50, bottom: 0, right: 50))
@@ -93,6 +96,13 @@ class SearchCollectionViewController: BaseListController, UICollectionViewDelega
         return cell
     }
     
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let appId = appResults[indexPath.item].trackId
+        let appDetailController  = AppDetailsCollectionViewController(appId: String(appId))
+        navigationController?.pushViewController(appDetailController, animated: true)
+    }
     
     
     

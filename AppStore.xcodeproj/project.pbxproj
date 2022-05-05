@@ -35,6 +35,7 @@
 		C3733D332823034900F4FBFA /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D322823034900F4FBFA /* ReviewCollectionViewCell.swift */; };
 		C3733D36282309D000F4FBFA /* ReviewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D35282309D000F4FBFA /* ReviewCollectionViewController.swift */; };
 		C3733D3828230BD100F4FBFA /* RatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D3728230BD100F4FBFA /* RatingCollectionViewCell.swift */; };
+		C3733D3A2823F02700F4FBFA /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D392823F02700F4FBFA /* Review.swift */; };
 		C3C649212819C993006CBC75 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C649202819C993006CBC75 /* Social.swift */; };
 		C3D923CB281ADC4700D3A1C9 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */; };
 		C3D923CD281B3BAD00D3A1C9 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */; };
@@ -73,6 +74,7 @@
 		C3733D322823034900F4FBFA /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3733D35282309D000F4FBFA /* ReviewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewController.swift; sourceTree = "<group>"; };
 		C3733D3728230BD100F4FBFA /* RatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3733D392823F02700F4FBFA /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		C3C649202819C993006CBC75 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				C36D14372814A58D00CE55D9 /* Search.swift */,
 				C305D4022819595D00BD93B8 /* AppGroup.swift */,
 				C3C649202819C993006CBC75 /* Social.swift */,
+				C3733D392823F02700F4FBFA /* Review.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				C305D4032819595D00BD93B8 /* AppGroup.swift in Sources */,
 				C3733D2D2821E39A00F4FBFA /* PreviewCollectionViewCell.swift in Sources */,
 				C3C649212819C993006CBC75 /* Social.swift in Sources */,
+				C3733D3A2823F02700F4FBFA /* Review.swift in Sources */,
 				C3D923CD281B3BAD00D3A1C9 /* BetterSnappingLayout.swift in Sources */,
 				C36D13C9280ED3CD00CE55D9 /* UIView+Extension.swift in Sources */,
 				C36D13C3280E180D00CE55D9 /* SearchCollectionViewController.swift in Sources */,
