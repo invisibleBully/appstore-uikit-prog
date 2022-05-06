@@ -38,6 +38,10 @@
 		C3733D3A2823F02700F4FBFA /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D392823F02700F4FBFA /* Review.swift */; };
 		C3733D3D2824509300F4FBFA /* TodayCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D3C2824509300F4FBFA /* TodayCollectionViewController.swift */; };
 		C3733D402824514700F4FBFA /* TodayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D3F2824514700F4FBFA /* TodayCollectionViewCell.swift */; };
+		C3733D4228246F1E00F4FBFA /* AppFullScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D4128246F1E00F4FBFA /* AppFullScreenTableViewController.swift */; };
+		C3733D442824735B00F4FBFA /* FullScreenDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D432824735B00F4FBFA /* FullScreenDescriptionTableViewCell.swift */; };
+		C3733D462824868300F4FBFA /* FullScreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D452824868300F4FBFA /* FullScreenHeaderCell.swift */; };
+		C3733D48282583F200F4FBFA /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3733D47282583F200F4FBFA /* TodayItem.swift */; };
 		C3C649212819C993006CBC75 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C649202819C993006CBC75 /* Social.swift */; };
 		C3D923CB281ADC4700D3A1C9 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */; };
 		C3D923CD281B3BAD00D3A1C9 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */; };
@@ -79,6 +83,10 @@
 		C3733D392823F02700F4FBFA /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		C3733D3C2824509300F4FBFA /* TodayCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewController.swift; sourceTree = "<group>"; };
 		C3733D3F2824514700F4FBFA /* TodayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3733D4128246F1E00F4FBFA /* AppFullScreenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenTableViewController.swift; sourceTree = "<group>"; };
+		C3733D432824735B00F4FBFA /* FullScreenDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		C3733D452824868300F4FBFA /* FullScreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenHeaderCell.swift; sourceTree = "<group>"; };
+		C3733D47282583F200F4FBFA /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		C3C649202819C993006CBC75 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
@@ -185,6 +193,7 @@
 				C305D4022819595D00BD93B8 /* AppGroup.swift */,
 				C3C649202819C993006CBC75 /* Social.swift */,
 				C3733D392823F02700F4FBFA /* Review.swift */,
+				C3733D47282583F200F4FBFA /* TodayItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +316,7 @@
 			children = (
 				C3733D3E2824513500F4FBFA /* View */,
 				C3733D3C2824509300F4FBFA /* TodayCollectionViewController.swift */,
+				C3733D4128246F1E00F4FBFA /* AppFullScreenTableViewController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -315,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				C3733D3F2824514700F4FBFA /* TodayCollectionViewCell.swift */,
+				C3733D432824735B00F4FBFA /* FullScreenDescriptionTableViewCell.swift */,
+				C3733D452824868300F4FBFA /* FullScreenHeaderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -433,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3733D462824868300F4FBFA /* FullScreenHeaderCell.swift in Sources */,
 				C3733D402824514700F4FBFA /* TodayCollectionViewCell.swift in Sources */,
 				C3D923CF281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift in Sources */,
 				C36D143B2814AB6700CE55D9 /* NetworkManager.swift in Sources */,
@@ -445,10 +458,12 @@
 				C3733D3D2824509300F4FBFA /* TodayCollectionViewController.swift in Sources */,
 				C36D13C3280E180D00CE55D9 /* SearchCollectionViewController.swift in Sources */,
 				C36D144D281740C400CE55D9 /* AppsHeaderCollectionViewCell.swift in Sources */,
+				C3733D4228246F1E00F4FBFA /* AppFullScreenTableViewController.swift in Sources */,
 				C36D138E2805BF0C00CE55D9 /* BaseTabBarController.swift in Sources */,
 				C36D13722805B4BD00CE55D9 /* AppDelegate.swift in Sources */,
 				C36D14402815A01800CE55D9 /* BaseListController.swift in Sources */,
 				C36D14472816C11F00CE55D9 /* AppsRowCell.swift in Sources */,
+				C3733D48282583F200F4FBFA /* TodayItem.swift in Sources */,
 				C36D14492817207200CE55D9 /* AppsPageHeaderView.swift in Sources */,
 				C36D13742805B4BD00CE55D9 /* SceneDelegate.swift in Sources */,
 				C36D143E28159F3100CE55D9 /* AppsPageCollectionViewController.swift in Sources */,
@@ -461,6 +476,7 @@
 				C36D13C6280E22B800CE55D9 /* SearchCollectionViewCell.swift in Sources */,
 				C36D14452815D97600CE55D9 /* AppsHorizontalController.swift in Sources */,
 				C3733D36282309D000F4FBFA /* ReviewCollectionViewController.swift in Sources */,
+				C3733D442824735B00F4FBFA /* FullScreenDescriptionTableViewCell.swift in Sources */,
 				C3733D312821E6BE00F4FBFA /* ScreenshotCollectionViewCell.swift in Sources */,
 				C36D13CB280EE4EE00CE55D9 /* VerticalStackView.swift in Sources */,
 				C3D923CB281ADC4700D3A1C9 /* HorizontalSnappingController.swift in Sources */,

@@ -50,15 +50,18 @@ class AppDetailsCollectionViewController: BaseListController, UICollectionViewDe
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.item == 0 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppDetailCollectionViewCell.identifier, for: indexPath) as? AppDetailCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppDetailCollectionViewCell.identifier, for: indexPath) as?
+                    AppDetailCollectionViewCell else { return UICollectionViewCell() }
             cell.configureCell(app: app)
             return cell
         }else if indexPath.item == 1{
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PreviewCollectionViewCell.identifier, for: indexPath) as? PreviewCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PreviewCollectionViewCell.identifier, for: indexPath) as?
+                    PreviewCollectionViewCell else { return UICollectionViewCell() }
             cell.horizontalController.app = app
             return cell
         }else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCollectionViewCell.identifier, for: indexPath) as? ReviewCollectionViewCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReviewCollectionViewCell.identifier, for: indexPath) as?
+                    ReviewCollectionViewCell else {
                 return UICollectionViewCell()
             }
             cell.horizontalController.reviews = reviews
