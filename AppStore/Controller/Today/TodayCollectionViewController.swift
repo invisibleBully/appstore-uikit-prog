@@ -26,23 +26,24 @@ class TodayCollectionViewController: BaseListController, UICollectionViewDelegat
               title: "Utilizing your time",
               image: UIImage(named: "garden")!,
               desc: "All the tools and apps you need to intelligently organize your life the right way",
-              backgroundColor: UIColor.white),
-        .init(category: "HOLIDAYS",
-              title: "Travel on a budget.",
+              backgroundColor: UIColor.white, cellType: .single),
+        .init(category: "THE DAILY LIST",
+              title: "Test Drive These carPlay Apps",
               image: UIImage(named: "garden")!,
-              desc: "This is the best time to get free health care from the NHS",
-              backgroundColor: UIColor.white),
+              desc: "",
+              backgroundColor: UIColor.white, cellType: .multiple),
         .init(category: "HEALTH",
               title: "Free Health Care",
               image: UIImage(named: "garden")!,
               desc: "All the tools and apps you need to intelligently organize your life the right way",
-              backgroundColor: UIColor.white),
+              backgroundColor: UIColor.white, cellType: .single),
         .init(category: "FINANCE",
               title: "Everyday finances",
               image: UIImage(named: "garden")!,
               desc: "All the tools and apps you need to intelligently organize your life the right way",
-              backgroundColor: UIColor.white)
+              backgroundColor: UIColor.white, cellType: .single)
     ]
+    
     
     
     override func viewDidLoad() {
@@ -50,7 +51,9 @@ class TodayCollectionViewController: BaseListController, UICollectionViewDelegat
         navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = UIColor.init(white: 0.5, alpha: 0.1)
         collectionView.register(TodayCollectionViewCell.self,
-                                forCellWithReuseIdentifier: TodayCollectionViewCell.identifier)
+                                forCellWithReuseIdentifier: CellType.single.rawValue)
+        collectionView.register(MultipleAppCollectionViewCell.self,
+                                forCellWithReuseIdentifier: CellType.multiple.rawValue)
         
     }
     
@@ -62,16 +65,28 @@ class TodayCollectionViewController: BaseListController, UICollectionViewDelegat
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayCollectionViewCell.identifier, for: indexPath) as?
-                TodayCollectionViewCell else { return UICollectionViewCell()}
+        
         let item = items[indexPath.row]
-        cell.configureCell(item: item)
-        return cell
+        
+        let cellType = item.cellType
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.rawValue, for: indexPath)
+        
+        switch cellType {
+        case .single:
+            let cell = cell as! TodayCollectionViewCell
+            cell.configureCell(item: item)
+            return cell
+        case .multiple:
+            let cell = cell as! MultipleAppCollectionViewCell
+            cell.configureCell(for: item)
+            return cell
+        }
+
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width - 64, height: 450)
+        return .init(width: view.frame.width - 64, height: 500)
     }
     
     

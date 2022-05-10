@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 
+enum CellType: String {
+    case single, multiple
+}
 
 struct TodayItem {
     let category: String
@@ -16,4 +19,5 @@ struct TodayItem {
     let image: UIImage
     let desc: String
     let backgroundColor: UIColor
+    let cellType: CellType
 }

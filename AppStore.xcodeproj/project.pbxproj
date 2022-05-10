@@ -46,6 +46,7 @@
 		C3D923CB281ADC4700D3A1C9 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */; };
 		C3D923CD281B3BAD00D3A1C9 /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */; };
 		C3D923CF281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D923CE281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift */; };
+		C3FD3508282680DD005B8733 /* MultipleAppCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FD3507282680DD005B8733 /* MultipleAppCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		C3D923CA281ADC4700D3A1C9 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		C3D923CC281B3BAD00D3A1C9 /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
 		C3D923CE281B4F3000D3A1C9 /* AppDetailsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsCollectionViewController.swift; sourceTree = "<group>"; };
+		C3FD3507282680DD005B8733 /* MultipleAppCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAppCollectionCell.swift; sourceTree = "<group>"; };
 		E7C906338A9CB0AFCD5360FA /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -327,6 +329,7 @@
 				C3733D3F2824514700F4FBFA /* TodayCollectionViewCell.swift */,
 				C3733D432824735B00F4FBFA /* FullScreenDescriptionTableViewCell.swift */,
 				C3733D452824868300F4FBFA /* FullScreenHeaderCell.swift */,
+				C3FD3507282680DD005B8733 /* MultipleAppCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				C3733D312821E6BE00F4FBFA /* ScreenshotCollectionViewCell.swift in Sources */,
 				C36D13CB280EE4EE00CE55D9 /* VerticalStackView.swift in Sources */,
 				C3D923CB281ADC4700D3A1C9 /* HorizontalSnappingController.swift in Sources */,
+				C3FD3508282680DD005B8733 /* MultipleAppCollectionCell.swift in Sources */,
 				C3733D3828230BD100F4FBFA /* RatingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

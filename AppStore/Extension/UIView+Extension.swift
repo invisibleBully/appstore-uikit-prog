@@ -27,6 +27,7 @@ extension UIView{
                 size: CGSize = .zero) -> AnchoredConstraints {
         
         translatesAutoresizingMaskIntoConstraints = false
+        
         var anchoredConstraints = AnchoredConstraints()
         
         if let top = top {
@@ -85,6 +86,7 @@ extension UIView{
     
     func centerInSuperview(size: CGSize = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
+        
         if let superviewCenterXAnchor = superview?.centerXAnchor {
             centerXAnchor.constraint(equalTo: superviewCenterXAnchor).isActive = true
         }
